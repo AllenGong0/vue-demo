@@ -9,6 +9,7 @@
         {{item}}
     </div>
   </div>
+  <el-input v-model="input" placeholder="请输入内容"></el-input>
 </template>
 
 <script>
@@ -17,15 +18,11 @@
     props:{
         count:Number
     },
-    updated(){
-        console.log('组建更新')
-        console.log(this)
-    },
     setup(props,context) {
         let myCount  = ref(0)
         let arr = reactive([])
         onUpdated(()=>{
-            console.log(this)
+            console.log(`setUp 更新`)
             // console.log(props.count)   
         })
         let addCount = ()=>{
@@ -40,6 +37,7 @@
         }
       //const count = ref(props.count)
       return {
+        input:ref(''),
         arr,
         myCount,
         msg: 'ss',

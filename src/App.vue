@@ -1,7 +1,5 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld />
-  <Father />
+  <router-view></router-view>
 </template>
 
 <script>
