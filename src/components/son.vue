@@ -12,15 +12,16 @@
   <el-input v-model="input" placeholder="请输入内容"></el-input>
 </template>
 
-<script>
-  import { onUpdated, reactive, ref, toRaw, toRef, toRefs } from 'vue'
+<script lang="ts">
+  import { onUpdated, reactive, ref } from 'vue'
   export default {
     props:{
         count:Number
     },
-    setup(props,context) {
+    setup() {
         let myCount  = ref(0)
-        let arr = reactive([])
+        let myArr:number[] = []
+        let arr = reactive(myArr)
         onUpdated(()=>{
             console.log(`setUp 更新`)
             // console.log(props.count)   

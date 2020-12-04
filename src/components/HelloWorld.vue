@@ -1,53 +1,35 @@
 <template>
-  <h1>this is HelloWorld</h1>
-  <button @click="count++">count is: {{ count }}</button>
-  <p>
-    Edit <code>components/HelloWorld.vue</code> to test hot module replacement.
-  </p>
-  <div v-bind:title="message">sww</div>
+  <div class="hello">
+  </div>
 </template>
 
-<script>
-import { ref, onBeforeUpdate, onUpdated, reactive } from "vue";
+<script lang="ts">
+import { Options, Vue } from 'vue-class-component';
 
-export default {
-  // reactive state
-  data() {
-    return {
-      count: 0,
-      message: new Date().toLocaleString(),
-      // msg:'ww'
-    };
-  },
-  created() {
-    const count = ref(0);
-    const list = ref([1, 2, 34]);
-    const state = reactive({
-      count,
-      list,
-    });
-    state.count++;
-    state.list.push(5);
-  },
+@Options({
   props: {
-    title: String,
-  },
-  setup() {
-    console.log();
-    let itemRefs = [];
-    const setItemRef = (el) => {
-      itemRefs.push(el);
-    };
-    onBeforeUpdate(() => {
-      itemRefs = [];
-    });
-    onUpdated(() => {
-      console.log(itemRefs);
-    });
-    return {
-      itemRefs,
-      setItemRef,
-    };
-  },
-};
+    msg: String
+  }
+})
+export default class HelloWorld extends Vue {
+  msg!: string
+}
 </script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style scoped>
+h3 {
+  margin: 40px 0 0;
+}
+ul {
+  list-style-type: none;
+  padding: 0;
+}
+li {
+  display: inline-block;
+  margin: 0 10px;
+}
+a {
+  color: #42b983;
+}
+</style>
